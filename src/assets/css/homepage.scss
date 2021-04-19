@@ -1,0 +1,26 @@
+.blog{ 
+    .blog-header{
+        .title{
+            display: inline-block;
+            font-size: var(--font-xxl);
+        }
+        .date{
+            font-size: var(--font-xxs);
+            display: inline-block;
+            color: #b6b6b6;
+        }
+    }
+    .blog-content{ 
+        max-height: 80px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        div{
+            margin-bottom: 16px;
+        }
+    }
+    .date{
+        font-size: var(--font-xxs);
+        display: inline-block;
+        color: #b6b6b6;
+    }
+}

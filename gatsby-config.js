@@ -1,6 +1,8 @@
 module.exports = {
+  pathPrefix: `example/blog`,  
   siteMetadata: {
     title: "gatsby-blog",
+    siteUrl: "https://albertcahyawan.com/example/blog/"
   },
   plugins: [
     "gatsby-plugin-sass",
