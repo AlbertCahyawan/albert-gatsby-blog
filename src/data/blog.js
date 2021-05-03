@@ -114,13 +114,78 @@ const blogData = [
         date: '24 March 2021',
         content: `
         <div>
-        After spending time on researching for few day on Recursion I
-
-        Tail call Optimize
+        After spending time on researching for few day on Recursion I still find that iteration still much better than Iteration
+        first the idea of recursion is just for clarity with the cost memory from stack and higher chances of buggy code that never end
+        other than that I find out about  Tail call Optimize which basically where compiler optimize our code again and usually what happen to
+        recursive program is the compiler would optimize it again into a loop as it much more efficient than recursion 
+        </br>
+        overall I find that recursion still a buggy, inefficient code that is in my opinion harder to code(there is account some thinks it's much easier)
+        but overall it's not something you use just because it's is harder as quoted  
+        </br>
+        "An idiot admires complexity, while a genius appreciates simplicity" - Terry A. Davis
+        </br>
+        this preety much explain most recursion user thinking it as looking cool rather than it functionality as a way to brag in my opinion.  
+        </div>
+        <div> 
+        links:
         https://ridiculousfish.com/blog/posts/will-it-optimize.html
         </div>
-        `
-        
+        ` 
+    }, 
+    {
+        title: 'Software engineer Interview',
+        date: '3 May 2021',
+        content: `
+        <div>
+        After few interview for software engineer I finally found out a few key on getting interview and how most question will be asked. as prewarning this will be mostly 
+        in my opnion not an expert hr or I've been interviewing people and this be mostly from front-end candidate or any software engineer candidate In my guess this will 
+        include most company with some exception of crazy company or FAANG company but maybe mostly be the same
+        </div>
+        <div>
+        Firstly I find about how to get the call for interview, as many of us realize when you apply for a job and send application after hundreds of application you still not getting the call
+        from the interviewee this mostly due to ATS systme from Hr that literally filter out for keyword in your resume the way workaround for this is to find the company HR that you are applying
+        and tell them your interest on the company. this mostly work for most company regardless what type of job you are applying and the most effective methods to get interview.
+        </div>
+        <div>
+        next on after the getting the interview you will usually be just contacted by HR asking about your skill tell me about yourself kinda question or given an 
+        online coding test to filled out should be mostly easy qualified most people will pass this with the very basic skills set with exception some top company
+        might ask quiet harder question in this stage. 
+        </div>
+        <div>
+        the next one is the first stage or the only stage in some depending which company you applying basically it just normal interview with engineer which usually just mostly basic 
+        javascript question just search google "simple front-end interview question" just find your job that applying it will likely be the same and you will get most likely asked the question that 
+        will asked and prob study some basic design like responsiv web design and basic stuff in js and css and you be fine in technical. it's also fine to not knowing something rather than
+        bullshiting your way up as it would be preety obvious. next coding part the most lovable part on myself usually you be given 10 - 15 minutes to do this. Usually it will be basic question
+        taken from leetcode or hackerank just look up online most common would be palindrome and string manipulation code and this mostly be in easy part of algorithm so it mostly easy. once
+        you finish this usually you would be called for next interview in one or twodays more than 2 mean you likely failed 2 days is enough. oh I forgot to add there will be a behavioural question
+        like what would you do for this situation so be prepared and it can be technical too.
+
+        as preparation for this interview you also probably need to prepare some question for end of session for the company to answer to just show you're interested or just ask anything you 
+        are curious. One of recommended would be ask for interviewer contact reason would be for any catch up to fix your mistake since usually the interviewer time is not enough and 
+        nervouness can cause alot of stupid mistake which happen to me too and on addition if you fail the interview you are likely getting feedback from emailing them not HR that will ghost you.
+        </div>
+
+        <div>
+        on second interview you will likely asked about design interview this will usually design the database even if you are front-end usually just basic relationship SQL design though 
+        I only got here once and passed so I would say much experience in this one unless in future
+        </div>
+
+        <div>
+        Lastly this would be usually be hiring manager interview this would largely behavioural may some coding too but not too much technical this actually just stage to sell yourself up
+        be prepared to answer tell me about yourself question and design it to sell yourself as much as possible. but this stage usually different soo be prepared for any suprise
+        </div>
+
+        <div>
+        lastly just you will receive offer if you are accepted congrutulation you just get yourself a job. a few tips from me 
+        <ul>
+            <li>1.get interviewee email as I said you can get feedback and clarify mistake by contacting them after interview</li>
+            <li>2.apply to as many company that you are interested in since you would likely be not even accepted even if you ace it(happen to me)</li>
+            <li>3.try be as relax though even myself is nervous this is quiet common so be prepared</li>
+        </ul>
+
+        that's it tips bit from me I hope you get job soon 
+        </div>
+        ` 
     }, 
 ]
 

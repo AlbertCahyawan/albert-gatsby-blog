@@ -19,7 +19,7 @@ export default function Layout({data, children, bodyClass, isHome}){
             <div className="navbar">
                 <div className="profile"> 
                     <img src="https://albertcahyawan.com/assets/img/profile.jpg" alt="profile"></img>
-                </div>
+                </div> 
                 <h1>Albert Cahyawan</h1>
                 <p className="profile-description">front-end developer. S.Kom of Computer Science</p>
                 <ul className="profile-link">

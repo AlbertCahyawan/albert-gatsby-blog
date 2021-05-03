@@ -29,10 +29,10 @@ function IndexApp() {
       <div className="blog">    
 
         {blogData.map((data,id)=>(
-          <div key={id}> 
+          <div key={id} className="blog-container"> 
             <div className="blog-header"> 
               <Link to={`/articles/${id}`}><h2 className="title"> {data.title}</h2></Link>  <span className="date">{data.date}</span> 
-            </div>
+            </div> 
             <div className="blog-content" id={`blog-content-${id}`}>  
             </div>
             <Link to={`/articles/${id}`}>Read more</Link>
