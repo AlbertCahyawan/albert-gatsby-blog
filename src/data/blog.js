@@ -138,12 +138,12 @@ const blogData = [
         content: `
         <div>
         After few interview for software engineer I finally found out a few key on getting interview and how most question will be asked. as prewarning this will be mostly 
-        in my opnion not an expert hr or I've been interviewing people and this be mostly from front-end candidate or any software engineer candidate In my guess this will 
+        in my opinion not an expert hr or I've been interviewing people and this be mostly from front-end candidate or any software engineer candidate In my guess this will 
         include most company with some exception of crazy company or FAANG company but maybe mostly be the same
         </div>
         <div>
         Firstly I find about how to get the call for interview, as many of us realize when you apply for a job and send application after hundreds of application you still not getting the call
-        from the interviewee this mostly due to ATS systme from Hr that literally filter out for keyword in your resume the way workaround for this is to find the company HR that you are applying
+        from the interviewee this mostly due to ATS systme from HR that literally filter out for keyword in your resume the way workaround for this is to find the company HR that you are applying
         and tell them your interest on the company. this mostly work for most company regardless what type of job you are applying and the most effective methods to get interview.
         </div>
         <div>
@@ -172,14 +172,17 @@ const blogData = [
 
         <div>
         Lastly this would be usually be hiring manager interview this would largely behavioural may some coding too but not too much technical this actually just stage to sell yourself up
-        be prepared to answer tell me about yourself question and design it to sell yourself as much as possible. but this stage usually different soo be prepared for any suprise
+        be prepared to answer tell me about yourself question again and design it to sell yourself as much as possible. but this stage usually different and unique from each company soo be 
+        prepared for any suprise
         </div>
 
         <div>
         lastly just you will receive offer if you are accepted congrutulation you just get yourself a job. a few tips from me 
         <ul>
             <li>1.get interviewee email as I said you can get feedback and clarify mistake by contacting them after interview</li>
-            <li>2.apply to as many company that you are interested in since you would likely be not even accepted even if you ace it(happen to me)</li>
+            <li>2.apply to as many company that you are interested in since you would likely be not even accepted even if you ace it(happen to me though my guess it has to with culture fit
+                of how much you interested in the company)
+            </li>
             <li>3.try be as relax though even myself is nervous this is quiet common so be prepared</li>
         </ul>
 
