@@ -1,4 +1,3 @@
-import React from 'react-redux'
 const blogData = [  
     {
         title: 'Hello, World!',
@@ -154,7 +153,7 @@ const blogData = [
         <div>
         the next one is the first stage or the only stage in some depending which company you applying basically it just normal interview with engineer which usually just mostly basic 
         javascript question just search google "simple front-end interview question" just find your job that applying it will likely be the same and you will get most likely asked the question that 
-        will asked and prob study some basic design like responsiv web design and basic stuff in js and css and you be fine in technical. it's also fine to not knowing something rather than
+        will asked and prob study some basic design like responsive web design and basic stuff in js and css and you be fine in technical. it's also fine to not knowing something rather than
         bullshiting your way up as it would be preety obvious. next coding part the most lovable part on myself usually you be given 10 - 15 minutes to do this. Usually it will be basic question
         taken from leetcode or hackerank just look up online most common would be palindrome and string manipulation code and this mostly be in easy part of algorithm so it mostly easy. once
         you finish this usually you would be called for next interview in one or twodays more than 2 mean you likely failed 2 days is enough. oh I forgot to add there will be a behavioural question

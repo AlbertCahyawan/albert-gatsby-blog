@@ -5,16 +5,16 @@ import {connect} from 'react-redux'
 
 function Articles({blogData,params}) { 
     const {id} = params;
-    const hasdata = blogData.hasOwnProperty(id)  
+    const hasdata = blogData.hasOwnProperty(id)    
     useEffect( ()=>{
         if(!hasdata){
             navigate('/')
-            
         }else{
-            document.getElementById(`articles-content-data`).innerHTML = blogData[id].content ;
+            document.getElementById(`articles-content-data`).innerHTML = blogData[id].content ; 
         }
-    }, [hasdata] )
-    const bData = blogData[id] 
+    }, [hasdata,id,blogData] )
+    const bData = blogData[id]  
+
     return ( 
         <div className="articles">
             <Link to="/"><div className="exit">return</div></Link>  
@@ -37,7 +37,7 @@ function Articles({blogData,params}) {
 }     
 
 const mapState = state => ({
-    blogData: state.reduxReducer.blogData, 
+    blogData: state.reduxReducer.blogData,  
 }); 
 
 export default connect(mapState)(Articles) 

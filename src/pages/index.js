@@ -12,17 +12,17 @@ function IndexApp() {
   
   // function sanitize(strings, ...values) {
   //     return strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`);
-  // }
+  // } 
 
-  function FillContent (){
-    for(let key in  blogData){  
-      const content = blogData[key].content ;
-      document.getElementById(`blog-content-${key}`).innerHTML = content  
-    }
-  }
   useEffect( ()=>{
+    const FillContent = () => {
+      for(let key in  blogData){  
+        const content = blogData[key].content ;
+        document.getElementById(`blog-content-${key}`).innerHTML = content  
+      }
+    }
     FillContent(); 
-  },[] )  
+  },[blogData] )  
   return (
 
     <Layout>  

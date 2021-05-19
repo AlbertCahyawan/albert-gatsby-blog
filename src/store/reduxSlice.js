@@ -1,15 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import blogData from '../data/blog'
 export const reduxSlice = createSlice({
-    name:'reduxTest',
+    name:'reduxSlice',
     initialState:{ 
-        blogData, 
+        dataLoaded: false,
+        blogData:{}, 
     }, 
-    reducers: { 
-    },
-})  
-export const { add,reduce,changeWord} = reduxSlice.actions;
+    reducers: {  
+        setBlogData: (state,action) => {    
+           state.blogData = action.payload;
+        },
+        setDataLoaded: (state) => {   
+            state.dataLoaded = true;
+        },
+    }
+}) 
+
+export const { setBlogData,setDataLoaded } = reduxSlice.actions;
  
 export const data = state => state.reduxReducer.blogData; 
+export const hasLoaded = state => state.reduxReducer.dataLoaded; 
 
 export default reduxSlice.reducer;
+
