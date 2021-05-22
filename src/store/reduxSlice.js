@@ -3,7 +3,7 @@ export const reduxSlice = createSlice({
     name:'reduxSlice',
     initialState:{ 
         dataLoaded: false,
-        blogData:{}, 
+        blogData:[], 
     }, 
     reducers: {  
         setBlogData: (state,action) => {    

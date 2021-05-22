@@ -1,11 +1,11 @@
 import React,{}  from "react" 
+import '../../assets/css/general.scss'   
+import '../../assets/css/core.scss'  
 import blogData  from "../../data/blog"
 import { connect } from "react-redux"
 import {setBlogData,setDataLoaded}  from '../../store/reduxSlice';  
-import '../../assets/css/general.scss'   
-import '../../assets/css/core.scss'  
 import { ThemeProvider } from "styled-components";
-
+import Loading from "../loading";
 // for different type of store
 // import {setBlogData,setDataLoaded}  from '../../store2/actions/postActions';   
 
@@ -25,7 +25,10 @@ function setDefault (props){
         myResolve("OK"); 
     });
     myPromise.then(
-        props.setDataLoaded()
+        // need to set timeout due to having script rendered before styled component
+        setTimeout(()=>{
+            props.setDataLoaded()
+        },100)
     )
 }
 
@@ -36,7 +39,7 @@ function App(props){
     return(
         <ThemeProvider theme={theme}>
             {   (props.dataLoaded) ?
-                props.children:'...'
+                props.children:<Loading/>
             }
         </ThemeProvider>
     )

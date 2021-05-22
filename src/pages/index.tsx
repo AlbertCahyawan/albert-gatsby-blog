@@ -5,28 +5,29 @@ import { connect } from 'react-redux'
 import {useSelector } from 'react-redux'
 import {data} from '../store/reduxSlice'
 import styled from "styled-components" 
-
+import Loading from '../components/loading'
 
 interface BData{
   id: number,
   title: string,
   date: string,
   Content: string, 
-  map:any
+  map:any,
+  length: any,
+  forEach: any,
 }
 function IndexApp() {   
-  const blogData:BData = useSelector(data);
-  
+  const blogData:BData = useSelector(data); 
   // function sanitize(strings, ...values) {
   //     return strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`);
   // } 
 
   useEffect( ()=>{
     const FillContent = () => {
-      for(let key in  blogData){  
-        const content = blogData[key].content ;
-        document.getElementById(`blog-content-${key}`).innerHTML = content  
-      }
+      blogData.forEach((data,index)=>{
+        const content = data.content ;
+        document.getElementById(`blog-content-${index}`).innerHTML = content  
+      }) 
     }
     FillContent(); 
   },[blogData] )  
@@ -34,16 +35,20 @@ function IndexApp() {
 
     <Layout>  
       <Wrapper className="blog">    
-
-        {blogData.map((data,id)=>(
-          <Container key={id}> 
-            <Header> 
-              <Link to={`/articles/${id}`}><Title> {data.title}</Title></Link>  <Date>{data.date}</Date> 
-            </Header> 
-            <Content id={`blog-content-${id}`} />   
-            <Link to={`/articles/${id}`}>Read more</Link>
-          </Container> 
-        ))}  
+        { 
+        (blogData.length > 0 ) ? 
+          blogData.map((data,id)=>(
+            <Container key={id}> 
+              <Header> 
+                <Link to={`/articles/${id}`}><Title> {data.title}</Title></Link>  <Date>{data.date}</Date> 
+              </Header> 
+              <Content id={`blog-content-${id}`} />   
+              <Link to={`/articles/${id}`}>Read more</Link>
+            </Container> 
+          )) :
+          <Loading/> 
+        }
+        
 
         {/* <div className="blog-direction">
           <div className="prev">Prev</div>
@@ -68,7 +73,7 @@ const Header = styled.div`
     left: 0px;
     background: linear-gradient(rgba(255, 255, 255, 0), white);
     width: 100vw;
-    height: 35px;
+    height: 50px;
     z-index: 1; 
   }
 `;

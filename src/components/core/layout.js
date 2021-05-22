@@ -1,7 +1,7 @@
 import React from "react"  
+import styled from "styled-components" 
 import { Helmet } from 'react-helmet' 
 import Sidebar from "./sidebar"
-import styled from "styled-components"
 
 function Layout({ children }){   
     return (
@@ -29,9 +29,11 @@ const Wrapper = styled.main`
 `;
 const Content = styled.div`
     display: flex;
-    position: relative; 
-    padding: 16px; 
+    position: relative;
+    padding: 16px;
+    min-height: 50vh;
 `;
+
  
 export default Layout;
 

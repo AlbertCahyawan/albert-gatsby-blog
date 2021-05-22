@@ -8,38 +8,6 @@ interface BDataType {
     date: string; 
 }
 
-function Articles({blogData,params}) { 
-    const id:string = params.id; 
-    const hasdata:boolean = blogData.hasOwnProperty(id)    
-    useEffect( ()=>{
-        if(!hasdata){
-            navigate('/')
-        }else{
-            document.getElementById(`articles-content-data`).innerHTML = blogData[id].content ; 
-        }
-    }, [hasdata,id,blogData] )
-    const bData:BDataType = blogData[id]  
-
-    return ( 
-        <Wrapper>
-            <Link to="/"><Exit>return</Exit></Link>  
-            {(hasdata)? 
-            <div>
-                <Header> 
-                    <Title> {bData.title}</Title>
-                </Header>
-                <Content id="articles-content-data"></Content> 
-                <Date>
-                    Published on {bData.date}
-                </Date>  
-            </div>
-            : '' 
-            } 
-            <Footer>front-end developer. S.Kom of Computer Science</Footer> 
-        </Wrapper>  
-    )
-} 
-
 const Wrapper = styled.div`  
     max-width: 900px;
     margin: 0 auto;  
@@ -76,6 +44,38 @@ const Footer = styled.div`
     padding-top: 24px;
     border-top: 1px solid #b6b6b6;
 `;
+
+function Articles({blogData,params}) { 
+    const id:string = params.id; 
+    const hasdata:boolean = blogData.hasOwnProperty(id)    
+    useEffect( ()=>{
+        if(!hasdata){
+            navigate('/')
+        }else{
+            document.getElementById(`articles-content-data`).innerHTML = blogData[id].content ; 
+        }
+    }, [hasdata,id,blogData] )
+    const bData:BDataType = blogData[id]  
+
+    return ( 
+        <Wrapper>
+            <Link to="/"><Exit>return</Exit></Link>  
+            {(hasdata)? 
+            <div>
+                <Header> 
+                    <Title> {bData.title}</Title>
+                </Header>
+                <Content id="articles-content-data"></Content> 
+                <Date>
+                    Published on {bData.date}
+                </Date>  
+            </div>
+            : '' 
+            } 
+            <Footer>front-end developer. S.Kom of Computer Science</Footer> 
+        </Wrapper>  
+    )
+}  
 
 const mapState = state => ({
     blogData: state.reduxReducer.blogData,  

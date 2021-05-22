@@ -190,7 +190,7 @@ const blogData = [
         ` 
     }, 
     {
-        title: 'Legendary berserk Author Death Unfinished',
+        title: 'Legendary berserk Author Death',
         date: '20 May 2021',
         content: `
         <div>

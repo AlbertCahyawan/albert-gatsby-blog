@@ -1,20 +1,24 @@
 import React, {useState} from "react" 
-import { Link  } from "gatsby"  
 import styled, { css} from "styled-components";   
+import { Link  } from "gatsby"  
 import PropTypes from 'prop-types';
 
-function Sidebar({bdata} ){    
+
+function Nav({bdata} ){    
     const [showPostTitle,setShowPostTitle] = useState(true);   
     return (  
         <Wrapper> 
-            <PageLink selected={false} className={(false)? 'page-selected' : ''}> <a href="https://albertcahyawan.com/">Home</a> </PageLink> 
+            <PageLink selected={false} > <a href="https://albertcahyawan.com/">Home</a> </PageLink> 
             <PageLink 
                 selected={true}
                 toogle={true}
-                show={showPostTitle} 
-                onClick={()=>setShowPostTitle(!showPostTitle)}
-                aria-hidden="true">
-                <Link to="/">Blog</Link> 
+                show={showPostTitle}>
+                <Link 
+                    to="/" 
+                    onClick={()=>setShowPostTitle(!showPostTitle)}
+                    aria-hidden="true" >
+                    Blog
+                </Link> 
             </PageLink>
             <SubContainer  > 
                 <SubNav show={showPostTitle}>
@@ -28,7 +32,8 @@ function Sidebar({bdata} ){
         </Wrapper>   
  
     )
-} 
+}  
+
 
 const Wrapper = styled.ul`
 `; 
@@ -86,13 +91,13 @@ const SubNav = styled.ul`
     `}; 
 `;
  
-Sidebar.propTypes = {
+Nav.propTypes = {
     bdata: PropTypes.array
 };
 
-Sidebar.defaultProps = {
+Nav.defaultProps = {
     bdata: []
 };
 
-export default Sidebar
+export default Nav
 

@@ -1,11 +1,11 @@
 import React from "react"  
+import styled from "styled-components";  
 import { connect } from "react-redux" 
 import profile from '../../assets/img/profile.jpg';
 import Nav from "./nav";
 import SocialMedia from "../socialmedia"; 
-import styled from "styled-components"; 
 
-function Sidebar({blogData}){
+function Sidebar({blogData}){   
     return ( 
         <Wrapper>
             <Profile> 
@@ -22,14 +22,16 @@ function Sidebar({blogData}){
         </Wrapper>  
  
     )
-}
+} 
+
 const Wrapper = styled.div`
     position: relative;
     float: left;
     max-width: 375px;
+    height: 100%;
     margin-right: 16px;
     padding: 16px;
-    
+
     &::after{
         background: linear-gradient(180deg,#e6e6e6 0,#e6e6e6 48%,#fff);
         position: absolute;
@@ -53,13 +55,13 @@ const Profile = styled.div`
 `;
 const Description = styled.p` 
     color: #888;
-`; 
+    `; 
 
-const Footer = styled.footer` 
+    const Footer = styled.footer` 
     font-size: 14px;
     color: #b6b6b6;
-`;  
- 
+`;
+
 
 const mapState = state => ({
     blogData: state.reduxReducer.blogData,  
