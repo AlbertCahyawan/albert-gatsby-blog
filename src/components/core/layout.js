@@ -1,27 +1,37 @@
-import React from "react" 
+import React from "react"  
 import { Helmet } from 'react-helmet' 
-import Navbar from "./navbar"
- 
+import Sidebar from "./sidebar"
+import styled from "styled-components"
+
 function Layout({ children }){   
     return (
-        <main className="layout-page">
+        <Wrapper>
              <Helmet>
                 {/* <html lang={site.lang} /> */}
                 {/* <style type="text/css">{`${site.codeinjection_styles}`}</style> */}
                 {/* <body className={bodyClass} /> */}
                 <title>Albert Cahyawan Blog</title> 
             </Helmet> 
-            <Navbar/>
-            <div className="view-port"> 
+            <Sidebar/>
+            <Content> 
                 {children}
-            </div>
+            </Content>
 
             
-        </main> 
+        </Wrapper> 
     )
 }
 
+const Wrapper = styled.main`
+    position: relative;
+    color: "#232129";
+    margin: 0 24px; 
+`;
+const Content = styled.div`
+    display: flex;
+    position: relative; 
+    padding: 16px; 
+`;
  
-
-export default Layout
+export default Layout;
 

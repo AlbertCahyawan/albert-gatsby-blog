@@ -189,6 +189,30 @@ const blogData = [
         </div>
         ` 
     }, 
+    {
+        title: 'Legendary berserk Author Death Unfinished',
+        date: '20 May 2021',
+        content: `
+        <div>
+            Today I just saw a sad news of announcement on death of one legendary author who make dark fantasy Berserk, honestly this is really a sad news especially when his magnum opus manga berserk is left unfinished.
+            on honest side one of the saddest things is to have the story unfinished and most fans would likely would never see the end of berserk as miura evisioned and just left at chapter 363 as of now.
+            while the dead of the person is sad I mostly find less emotional in nature on this but rather something that attached to it which honestly the unfinished story of what I can consider one of the
+            greatest dark fantasy mangaka. I would consider it at level of dead of George R.R martin leaving his 2 books unfinished in manga world it's a horror death since we never see those story
+            according what the author has evisioned.
+        </div>
+        <div>
+            on the story itself as of now there is no news on continuation but considering popularity of berserk someone would be like continuing it which is likely his personal assistant though it
+            be a really heavy burden as there is likely a certain people would always compare it toward miura no matter how good or even in reality the story does derived much as hopefully there is
+            note left behind by miura as what oda did as contagency plan in case something happen as we realize we all mortal and things like this can happen at any moment where miura died at age
+            54 which can be considering quiet a young age to die for human being. certainly the heavy burden would be tough for anyone continuing it and honestly I would let any differences or
+            a bit of slack that not noticeable fly unless it at level D&D GOT season 7-8 writing which obviously horrible to the point people can rewrite way better on the story then this critism
+            is valid.
+        </div>
+        <div>
+            RIP Miura July 11, 1966 – May 6, 2021 
+        </div>
+        ` 
+    }, 
 ]
 
 export default blogData
