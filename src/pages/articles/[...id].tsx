@@ -1,6 +1,7 @@
 import React,{useEffect}  from "react" 
 import {  navigate, Link } from "gatsby"  
 import {connect} from 'react-redux'  
+import sanitizeHtml from 'sanitize-html';
 import styled from "styled-components" 
 
 interface BDataType {
@@ -65,7 +66,7 @@ function Articles({blogData,params}) {
                 <Header> 
                     <Title> {bData.title}</Title>
                 </Header>
-                <Content id="articles-content-data"></Content> 
+                <Content id="articles-content-data" dangerouslySetInnerHTML={{__html: sanitizeHtml(blogData[id].content ) }} ></Content> 
                 <Date>
                     Published on {bData.date}
                 </Date>  

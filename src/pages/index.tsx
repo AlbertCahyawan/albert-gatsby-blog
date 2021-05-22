@@ -6,6 +6,7 @@ import {useSelector } from 'react-redux'
 import {data} from '../store/reduxSlice'
 import styled from "styled-components" 
 import Loading from '../components/loading'
+import sanitizeHtml from 'sanitize-html';
 
 interface BData{
   id: number,
@@ -17,20 +18,7 @@ interface BData{
   forEach: any,
 }
 function IndexApp() {   
-  const blogData:BData = useSelector(data); 
-  // function sanitize(strings, ...values) {
-  //     return strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`);
-  // } 
-
-  useEffect( ()=>{
-    const FillContent = () => {
-      blogData.forEach((data,index)=>{
-        const content = data.content ;
-        document.getElementById(`blog-content-${index}`).innerHTML = content  
-      }) 
-    }
-    FillContent(); 
-  },[blogData] )  
+  const blogData:BData = useSelector(data);  
   return (
 
     <Layout>  
@@ -42,7 +30,7 @@ function IndexApp() {
               <Header> 
                 <Link to={`/articles/${id}`}><Title> {data.title}</Title></Link>  <Date>{data.date}</Date> 
               </Header> 
-              <Content id={`blog-content-${id}`} />   
+              <Content id={`blog-content-${id}`} dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.content) }} />   
               <Link to={`/articles/${id}`}>Read more</Link>
             </Container> 
           )) :
