@@ -13,7 +13,9 @@
     "build": "gatsby build --prefix-paths",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "test": "jest",
+    "testUpdate": "jest --updateSnapshot" 
+    
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
@@ -42,7 +44,15 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@types/jest": "^26.0.23",
+    "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.9",
-    "jest": "^26.6.3"
+    "babel-jest": "^26.6.3",
+    "babel-preset-gatsby": "^1.5.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.2"
   }
 }

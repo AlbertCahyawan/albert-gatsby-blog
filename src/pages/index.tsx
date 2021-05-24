@@ -1,13 +1,11 @@
-import React ,{useEffect}  from "react"
-import Layout from '../components/core/layout'
-import {Link} from 'gatsby'
+import React from "react"
+import Layout from '../components/core/layout' 
 import { connect } from 'react-redux' 
 import {useSelector } from 'react-redux'
 import {data} from '../store/reduxSlice'
 import styled from "styled-components" 
-import Loading from '../components/loading'
-import sanitizeHtml from 'sanitize-html';
-
+import Loading from '../components/loading' 
+import Post from '../components/post'
 interface BData{
   id: number,
   title: string,
@@ -17,6 +15,7 @@ interface BData{
   length: any,
   forEach: any,
 }
+
 function IndexApp() {   
   const blogData:BData = useSelector(data);  
   return (
@@ -26,13 +25,7 @@ function IndexApp() {
         { 
         (blogData.length > 0 ) ? 
           blogData.map((data,id)=>(
-            <Container key={id}> 
-              <Header> 
-                <Link to={`/articles/${id}`}><Title> {data.title}</Title></Link>  <Date>{data.date}</Date> 
-              </Header> 
-              <Content id={`blog-content-${id}`} dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.content) }} />   
-              <Link to={`/articles/${id}`}>Read more</Link>
-            </Container> 
+            <Post data={data} id={id} key={id} />
           )) :
           <Loading/> 
         }
@@ -49,40 +42,7 @@ function IndexApp() {
   )
 } 
 
-const Wrapper = styled.div``;
-const Container = styled.div`
-  position: relative;
-`;
-const Header = styled.div`
-  &::after{
-    position: absolute;
-    content: "";
-    bottom: 20px;
-    left: 0px;
-    background: linear-gradient(rgba(255, 255, 255, 0), white);
-    width: 100vw;
-    height: 50px;
-    z-index: 1; 
-  }
-`;
-const Content = styled.div`
-  position: relative;
-  max-height: 80px;
-  overflow: hidden;
-  margin-bottom: 16px;
-  div{
-    margin-bottom: 16px;
-  }
-`;
-const Title = styled.h2`
-  display: inline-block;
-  font-size: ${props => props.theme.fontXxs};
-`;
-const Date = styled.span`
-  font-size: ${props => props.theme.fontXxs} ;
-  display: inline-block;
-  color: #b6b6b6;
-`; 
+const Wrapper = styled.div``; 
 
 export default connect( null)(IndexApp) 
 

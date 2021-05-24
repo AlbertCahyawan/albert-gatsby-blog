@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components" 
 import { Helmet } from 'react-helmet' 
 import Sidebar from "./sidebar"
+import { connect } from "react-redux" 
 
 function Layout({ children }){   
     return (
@@ -35,5 +36,5 @@ const Content = styled.div`
 `;
 
  
-export default Layout;
+export default connect(null)(Layout) 
 

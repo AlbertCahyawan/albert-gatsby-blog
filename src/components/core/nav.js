@@ -14,6 +14,7 @@ function Nav({bdata} ){
                 toogle={true}
                 show={showPostTitle}>
                 <Link 
+                    data-testid="blog-title"
                     to="/" 
                     onClick={()=>setShowPostTitle(!showPostTitle)}
                     aria-hidden="true" >

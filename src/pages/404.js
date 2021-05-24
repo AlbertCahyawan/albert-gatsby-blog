@@ -5,7 +5,7 @@ import Layout from '../components/core/layout'
 const NotFoundPage = () => {
   return (
     <Layout>
-     404 route does not exist
+      404 route does not exist
     </Layout>
   )
 }
