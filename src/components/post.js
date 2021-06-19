@@ -7,7 +7,7 @@ function Post({data,id}) {
   return ( 
     <Container > 
         <Header> 
-        <Link to={`/articles/${id}`}><Title> {data.title}</Title></Link>  <Date>{data.date}</Date> 
+        <Link to={`/articles/${id}`} id={`post-${id}`}><Title> {data.title}</Title></Link>  <Date>{data.date}</Date> 
         </Header> 
         <Content id={`blog-content-${id}`} dangerouslySetInnerHTML={{ __html: sanitizeHtml(data.content) }} />   
         <Link to={`/articles/${id}`}>Read more</Link>

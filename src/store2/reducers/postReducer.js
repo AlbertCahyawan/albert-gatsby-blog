@@ -1,4 +1,4 @@
-import { BLOG_DATA, DATA_LOADED } from '../actions/types';
+import { BLOG_DATA, DATA_LOADED } from '@/actions/types';
 
 const initialState = {
   dataLoaded: false,

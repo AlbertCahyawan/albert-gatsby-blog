@@ -8,12 +8,13 @@ function Nav({bdata} ){
     const [showPostTitle,setShowPostTitle] = useState(true);   
     return (  
         <Wrapper> 
-            <PageLink selected={false} > <a href="https://albertcahyawan.com/">Home</a> </PageLink> 
+            <PageLink selected={false} id="home"> <a href="https://albertcahyawan.com/">Home</a> </PageLink> 
             <PageLink 
                 selected={true}
                 toogle={true}
                 show={showPostTitle}>
                 <Link 
+                    id="blog"
                     data-testid="blog-title"
                     to="/" 
                     onClick={()=>setShowPostTitle(!showPostTitle)}
@@ -22,7 +23,7 @@ function Nav({bdata} ){
                 </Link> 
             </PageLink>
             <SubContainer  > 
-                <SubNav show={showPostTitle}>
+                <SubNav show={showPostTitle} id="blog-nav">
                     {bdata.map( (data,id) => (
                         <li key={id}>
                             <Link to={`/articles/${id}`}> {data.title}</Link> 
@@ -78,17 +79,31 @@ const SubContainer = styled.div`
     overflow: hidden;   
 `;
 
+// div {
+//     display: none;
+//     transition: opacity 1s ease-out;
+//     opacity: 0;
+// }
+// div.active {
+//     opacity: 1;
+//     display: block;
+// }
+
 const SubNav = styled.ul`   
     padding-top: 16px; 
     overflow: hidden;
     margin-left: 16px;
-    transition: .5s ease-in-out 0s;
+    transition: opacity .1s, .5s ease-in-out 0s;
     li{
         margin-bottom: 4px;
     }     
     transform: translateY(0px); 
+    opacity: 1;
+    display: block;
     ${ props => !props.show && css` 
-        transform: translateY(-10rem);
+        transform: translateY(-10rem); 
+        opacity: 0;  
+        display: none;
     `}; 
 `;
  

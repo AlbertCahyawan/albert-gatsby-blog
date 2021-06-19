@@ -1,9 +1,9 @@
 import React from "react"  
 import styled from "styled-components";  
 import { connect } from "react-redux" 
-import profile from '../../assets/img/profile.jpg';
+import profile from '@/assets/img/profile.jpg';
 import Nav from "./nav";
-import SocialMedia from "../socialmedia"; 
+import SocialMedia from "@/components/socialmedia"; 
 
 function Sidebar({blogData}){   
     return ( 

@@ -14,13 +14,14 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "testUpdate": "jest --updateSnapshot" 
-    
+    "testUpdate": "jest --updateSnapshot"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
     "gatsby": "^2.26.1",
+    "gatsby-alias-imports": "^1.0.6",
     "gatsby-image": "^2.10.0",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-google-analytics": "^3.4.0",
     "gatsby-plugin-google-gtag": "^3.4.0",
     "gatsby-plugin-ipfs": "^2.0.2",
@@ -44,8 +45,10 @@
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
     "@types/jest": "^26.0.23",
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.9",
@@ -53,6 +56,8 @@
     "babel-preset-gatsby": "^1.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
+    "pptr-testing-library": "^0.6.5",
+    "puppeteer": "^10.0.0",
     "react-test-renderer": "^17.0.2"
   }
 }

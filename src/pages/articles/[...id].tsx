@@ -60,7 +60,7 @@ function Articles({blogData,params}) {
 
     return ( 
         <Wrapper>
-            <Link to="/"><Exit>return</Exit></Link>  
+            <Link to="/" id="blog-exit"><Exit>return</Exit></Link>  
             {(hasdata)? 
             <div>
                 <Header> 

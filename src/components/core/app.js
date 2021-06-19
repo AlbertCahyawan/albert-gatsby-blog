@@ -1,13 +1,13 @@
 import React,{}  from "react" 
-import '../../assets/css/general.scss'   
-import '../../assets/css/core.scss'  
-import blogData  from "../../data/blog"
+import '@/assets/css/general.scss'   
+import '@/assets/css/core.scss'  
+import blogData  from "@/data/blog"
 import { connect } from "react-redux"
-import {setBlogData,setDataLoaded}  from '../../store/reduxSlice';  
+import {setBlogData,setDataLoaded}  from '@/store/reduxSlice';  
 import { ThemeProvider } from "styled-components";
-import Loading from "../loading";
+import Loading from "@/components/loading";
 // for different type of store
-// import {setBlogData,setDataLoaded}  from '../../store2/actions/postActions';   
+// import {setBlogData,setDataLoaded}  from '@/store2/actions/postActions';   
 
 const theme = {
     fontXxs: 8,
