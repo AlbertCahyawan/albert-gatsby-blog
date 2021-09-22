@@ -2,8 +2,14 @@ import React from "react"
 import {Link} from 'gatsby' 
 import styled from "styled-components"  
 import sanitizeHtml from 'sanitize-html';
- 
-function Post({data,id}) {    
+import {BData} from "@/types"
+
+interface propsType {
+  data: BData,
+  id: Number
+}
+
+function Post({data,id}: propsType ) {    
   return ( 
     <Container > 
         <Header> 

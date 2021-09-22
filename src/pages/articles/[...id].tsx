@@ -1,14 +1,9 @@
 import React,{useEffect}  from "react" 
-import {  navigate, Link } from "gatsby"  
+import { navigate, Link , PageProps} from "gatsby"  
 import {connect} from 'react-redux'  
 import sanitizeHtml from 'sanitize-html';
-import styled from "styled-components" 
-
-interface BDataType {
-    title: string;
-    date: string; 
-}
-
+import styled from "styled-components"  
+import { BData } from '@/types' 
 const Wrapper = styled.div`  
     max-width: 900px;
     margin: 0 auto;  
@@ -46,17 +41,19 @@ const Footer = styled.div`
     border-top: 1px solid #b6b6b6;
 `;
 
-function Articles({blogData,params}) { 
-    const id:string = params.id; 
+interface propType {
+    blogData: any ,
+    id: string
+}
+ 
+function Articles({blogData , id }: propType ) {  
     const hasdata:boolean = blogData.hasOwnProperty(id)    
-    useEffect( ()=>{
-        if(!hasdata){
+    useEffect( ()=>{ 
+        if(!hasdata && blogData > 0){
             navigate('/')
-        }else{
-            document.getElementById(`articles-content-data`).innerHTML = blogData[id].content ; 
-        }
-    }, [hasdata,id,blogData] )
-    const bData:BDataType = blogData[id]  
+        } 
+    }, [hasdata, blogData] ) 
+    const bData: BData = blogData[id]  
 
     return ( 
         <Wrapper>
@@ -67,7 +64,7 @@ function Articles({blogData,params}) {
                     <Title> {bData.title}</Title>
                 </Header>
                 <Content id="articles-content-data" dangerouslySetInnerHTML={{__html: sanitizeHtml(blogData[id].content ) }} ></Content> 
-                <Date>
+                <Date>  
                     Published on {bData.date}
                 </Date>  
             </div>
@@ -78,7 +75,12 @@ function Articles({blogData,params}) {
     )
 }  
 
-const mapState = state => ({
+// fix state any later on
+interface articlesState {
+    reduxReducer: {blogData: BData[] };   
+}
+
+const mapState = (state: articlesState) => ({
     blogData: state.reduxReducer.blogData,  
 }); 
 

@@ -3,21 +3,19 @@ import styled from "styled-components"
 import { Helmet } from 'react-helmet' 
 import Sidebar from "./sidebar"
 import { connect } from "react-redux" 
+// import {PageProps} from 'gatsby'
 
-function Layout({ children }){   
+function Layout({ children } ){   
+
     return (
         <Wrapper>
-             <Helmet>
-                {/* <html lang={site.lang} /> */}
-                {/* <style type="text/css">{`${site.codeinjection_styles}`}</style> */}
-                {/* <body className={bodyClass} /> */}
+             <Helmet> 
                 <title>Albert Cahyawan Blog</title> 
             </Helmet> 
             <Sidebar/>
             <Content> 
                 {children}
-            </Content>
-
+            </Content> 
             
         </Wrapper> 
     )
@@ -34,6 +32,7 @@ const Content = styled.div`
     padding: 16px;
     min-height: 50vh;
 `;
+ 
 
  
 export default connect(null)(Layout) 

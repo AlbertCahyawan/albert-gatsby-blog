@@ -4,8 +4,13 @@ import { connect } from "react-redux"
 import profile from '@/assets/img/profile.jpg';
 import Nav from "./nav";
 import SocialMedia from "@/components/socialmedia"; 
+import { BData } from '@/types'
 
-function Sidebar({blogData}){   
+interface propType {
+    blogData: BData[]
+}
+
+function Sidebar({blogData}: propType  ){    
     return ( 
         <Wrapper>
             <Profile> 
@@ -62,8 +67,10 @@ const Description = styled.p`
     color: #b6b6b6;
 `;
 
-
-const mapState = state => ({
+interface SideState {
+    reduxReducer: {blogData: BData[] };   
+}
+const mapState = (state: SideState)=> ({
     blogData: state.reduxReducer.blogData,  
 }); 
 

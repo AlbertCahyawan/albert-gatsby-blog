@@ -6,6 +6,7 @@ import {setBlogData,setDataLoaded}  from '@/store/reduxSlice';
 import { ThemeProvider } from "styled-components";
 import Loading from "@/components/loading";
 import { fetchBlogData } from "../../api"
+import {BData} from "@/types"
 // for different type of store
 // import {setBlogData,setDataLoaded}  from '@/store2/actions/postActions';   
 
@@ -19,17 +20,27 @@ const theme = {
     fontXxl: 20,
 };
 
-function setDefault (props){ 
+interface proptypes{
+    setBlogData:any,
+    setDataLoaded:any,
+    children:any,
+    dataLoaded:boolean,
+}
+
+function setDefault (props:proptypes){ 
     fetchBlogData().then( res => { 
         if(res === "error"){
             console.log('error')
         }else{ 
             props.setBlogData(res)
         }    
-    }) 
+    }).catch(error => {
+        console.error(error);
+        return "error"
+    }); 
 }
 
-function App(props){  
+function App(props:proptypes){  
     if(!props.dataLoaded){ 
         setDefault(props) 
         // need to set timeout due to having script rendered before styled component
@@ -48,7 +59,14 @@ function App(props){
 } 
 
 
-const mapState = state => ({ 
+interface AppState {
+    reduxReducer: {
+        blogData: BData[], 
+        dataLoaded:  boolean
+    };   
+}
+
+const mapState = (state: AppState) => ({ 
     blogs: state.reduxReducer.blogData,
     dataLoaded: state.reduxReducer.dataLoaded,
 }); 

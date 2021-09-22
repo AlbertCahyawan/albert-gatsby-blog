@@ -1,10 +1,14 @@
 import React, {useState} from "react" 
 import styled, { css} from "styled-components";   
 import { Link  } from "gatsby"  
+import { BData } from '@/types';
 import PropTypes from 'prop-types';
 
 
-function Nav({bdata} ){    
+interface propTypes {
+    bdata: BData[]
+}
+function Nav({bdata} :propTypes ){    
     const [showPostTitle,setShowPostTitle] = useState(true);   
     return (  
         <Wrapper> 
@@ -36,11 +40,19 @@ function Nav({bdata} ){
     )
 }  
 
+interface PageInterface {
+    selected?:boolean,
+    toogle?:boolean,
+    show?:boolean,
+}
+interface SubNavInterface {
+    show:boolean,
+}
 
 const Wrapper = styled.ul`
 `; 
 
-const PageLink = styled.li` 
+const PageLink = styled.li <PageInterface>` 
     margin-top: 16px;   
     &:hover{
         color: #5d93ff;
@@ -71,7 +83,6 @@ const PageLink = styled.li`
                 top: 4px;
             `}; 
         }
-
     `};  
 `; 
  
@@ -79,17 +90,7 @@ const SubContainer = styled.div`
     overflow: hidden;   
 `;
 
-// div {
-//     display: none;
-//     transition: opacity 1s ease-out;
-//     opacity: 0;
-// }
-// div.active {
-//     opacity: 1;
-//     display: block;
-// }
-
-const SubNav = styled.ul`   
+const SubNav = styled.ul <SubNavInterface>`   
     padding-top: 16px; 
     overflow: hidden;
     margin-left: 16px;
@@ -102,8 +103,7 @@ const SubNav = styled.ul`
     display: block;
     ${ props => !props.show && css` 
         transform: translateY(-10rem); 
-        opacity: 0;  
-        display: none;
+        opacity: 0;   
     `}; 
 `;
  

@@ -6,18 +6,10 @@ import {data} from '@/store/reduxSlice'
 import styled from "styled-components" 
 import Loading from '@/components/loading' 
 import Post from '@/components/post'
-interface BData{
-  id: number,
-  title: string,
-  date: string,
-  Content: string, 
-  map:any,
-  length: any,
-  forEach: any,
-}
+import {BData} from '@/types' 
 
 function IndexApp() {   
-  const blogData:BData = useSelector(data);  
+  const blogData:BData[] = useSelector(data);   
   return (
 
     <Layout>  
