@@ -1,16 +1,22 @@
 import React from "react"  
 import styled from "styled-components";  
-import { connect } from "react-redux" 
+import { connect, ConnectedProps } from "react-redux" 
 import profile from '@/assets/img/profile.jpg';
 import Nav from "./nav";
 import SocialMedia from "@/components/socialmedia"; 
 import { BData } from '@/types'
+import { RootState } from "@/store";
+// import { RootState } from "@/store2";
 
-interface propType {
-    blogData: BData[]
-}
+const mapState = (state: RootState) => ({ 
+    blogData: state.reduxReducer.blogData, 
+});  
 
-function Sidebar({blogData}: propType  ){    
+const connector = connect(mapState);
+
+type PropsFromRedux = ConnectedProps<typeof connector> 
+
+function Sidebar({blogData}: PropsFromRedux  ){    
     return ( 
         <Wrapper>
             <Profile> 
@@ -66,13 +72,8 @@ const Description = styled.p`
     font-size: 14px;
     color: #b6b6b6;
 `;
+ 
 
-interface SideState {
-    reduxReducer: {blogData: BData[] };   
-}
-const mapState = (state: SideState)=> ({
-    blogData: state.reduxReducer.blogData,  
-}); 
-
-export default connect(mapState)(Sidebar) 
+  
+export default connector(Sidebar) 
 

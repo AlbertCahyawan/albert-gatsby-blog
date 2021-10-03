@@ -1,9 +1,12 @@
 import React,{useEffect}  from "react" 
 import { navigate, Link , PageProps} from "gatsby"  
-import {connect} from 'react-redux'  
+import {connect, ConnectedProps} from 'react-redux'  
 import sanitizeHtml from 'sanitize-html';
 import styled from "styled-components"  
 import { BData } from '@/types' 
+import { RootState } from "@/store";
+// import { RootState } from "@/store2";
+
 const Wrapper = styled.div`  
     max-width: 900px;
     margin: 0 auto;  
@@ -41,25 +44,34 @@ const Footer = styled.div`
     border-top: 1px solid #b6b6b6;
 `;
 
-interface propType {
-    blogData: any ,
+
+const mapState = (state: RootState) => ({ 
+    blogData: state.reduxReducer.blogData, 
+});  
+
+const connector = connect(mapState);
+
+type PropsFromRedux = ConnectedProps<typeof connector> 
+interface propType extends PropsFromRedux{ 
     id: string
 }
  
 function Articles({blogData , id }: propType ) {  
-    const hasdata:boolean = blogData.hasOwnProperty(id)    
+    const  num = +id
+    const hasdata:boolean = blogData.hasOwnProperty(num)  
+    console.log(blogData)  
     useEffect( ()=>{ 
-        if(!hasdata && blogData > 0){
+        if(!hasdata && blogData.length > 0){
             navigate('/')
         } 
     }, [hasdata, blogData] ) 
-    const bData: BData = blogData[id]  
+    const bData = blogData[num]  
 
     return ( 
         <Wrapper>
             <Link to="/" id="blog-exit"><Exit>return</Exit></Link>  
             {(hasdata)? 
-            <div>
+            <div> 
                 <Header> 
                     <Title> {bData.title}</Title>
                 </Header>
@@ -73,16 +85,7 @@ function Articles({blogData , id }: propType ) {
             <Footer>front-end developer. S.Kom of Computer Science</Footer> 
         </Wrapper>  
     )
-}  
+}   
 
-// fix state any later on
-interface articlesState {
-    reduxReducer: {blogData: BData[] };   
-}
-
-const mapState = (state: articlesState) => ({
-    blogData: state.reduxReducer.blogData,  
-}); 
-
-export default connect(mapState)(Articles) 
+export default connector(Articles) 
  

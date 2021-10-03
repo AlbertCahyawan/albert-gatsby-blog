@@ -1,14 +1,16 @@
 import React,{}  from "react" 
 import '@/assets/css/general.scss'   
 import '@/assets/css/core.scss'   
-import { connect } from "react-redux"
+import { connect, ConnectedProps } from "react-redux"
 import {setBlogData,setDataLoaded}  from '@/store/reduxSlice';  
+import { RootState } from "@/store";
 import { ThemeProvider } from "styled-components";
 import Loading from "@/components/loading";
 import { fetchBlogData } from "../../api"
 import {BData} from "@/types"
 // for different type of store
 // import {setBlogData,setDataLoaded}  from '@/store2/actions/postActions';   
+// import { RootState } from "@/store2";
 
 const theme = {
     fontXxs: 8,
@@ -20,11 +22,19 @@ const theme = {
     fontXxl: 20,
 };
 
-interface proptypes{
-    setBlogData:any,
-    setDataLoaded:any,
-    children:any,
-    dataLoaded:boolean,
+const mapState = (state: RootState) => ({ 
+    blogs: state.reduxReducer.blogData,
+    dataLoaded: state.reduxReducer.dataLoaded,
+}); 
+const mapDispatchToProps =  { 
+    setBlogData,
+    setDataLoaded
+};
+const connector = connect(mapState, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>
+interface proptypes extends PropsFromRedux{ 
+    children:any, 
 }
 
 function setDefault (props:proptypes){ 
@@ -50,32 +60,16 @@ function App(props:proptypes){
 
     }
     return(
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}> 
             {   (props.dataLoaded) ?
                 props.children:<Loading/>
             }
         </ThemeProvider>
     )
 } 
+ 
 
 
-interface AppState {
-    reduxReducer: {
-        blogData: BData[], 
-        dataLoaded:  boolean
-    };   
-}
-
-const mapState = (state: AppState) => ({ 
-    blogs: state.reduxReducer.blogData,
-    dataLoaded: state.reduxReducer.dataLoaded,
-}); 
-
-const mapDispatchToProps =  { 
-    setBlogData,
-    setDataLoaded
-};
-
-export default connect(mapState,mapDispatchToProps)(App) 
+export default connector(App) 
 
  
